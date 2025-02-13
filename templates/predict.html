@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allele Predictor - Prediction</title>
+    <style>
+        body {
+            background-image: url("https://thumbs.dreamstime.com/b/wheat-farm-background-wallpaper-abstract-vintage-sunset-65850813.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 20vh; 
+            padding-left: 10vw; 
+            margin: 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #5d2121;
+        }
+
+        th {
+            background-color: beige;
+        }
+
+        .container {
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+
+        h1.result-container {
+            font-size: 1.5em; 
+        }
+
+        p {
+            font-size: larger;
+        }
+
+        a {
+            display: block; 
+            margin-top: 20px;
+            text-decoration: none;
+            color: #5d2121;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding-left: 5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="result-container">Phenotypic Prediction Result</h1>
+        {% if sequence %}
+            <p>Input Sequence: {{ sequence }}</p>
+        {% endif %}
+
+        {% if prediction is defined %}
+            <p style="font-weight: bold; font-size: larger;">Predicted Phenotypic Values:</p>
+            <table>
+                <tr>
+                    <th>Phenotype</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Grain Filling Duration</td>
+                    <td>{{ prediction[0][0] }}</td>
+                </tr>
+                <tr>
+                    <td>Days To Heading</td>
+                    <td>{{ prediction[0][1] }}</td>
+                </tr>
+                <tr>
+                    <td>Plant Height</td>
+                    <td>{{ prediction[0][2] }}</td>
+                </tr>
+                <tr>
+                    <td>Grain Weight Per Spike</td>
+                    <td>{{ prediction[0][3] }}</td>
+                </tr>
+            </table>
+        {% endif %}
+
+        <a href="/">Go back to the input page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phenotypic Traits Predictions</title>
+    <style>
+        body {
+            background-image: url("https://thumbs.dreamstime.com/b/wheat-farm-background-wallpaper-abstract-vintage-sunset-65850813.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding-top: 150px;
+            padding-left: 10%; 
+
+        }
+
+        .hlo {
+            padding-top: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        label {
+            font-size: larger;
+            display: block;
+        }
+
+        input {
+            width: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            width: auto; 
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding-left: 5%;
+            }
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var sequenceInput = document.getElementsByName("sequence")[0].value;
+            var regex = /^[ATCG]{1,14}$/;
+            if (sequenceInput.trim() === "") {
+                alert("Please enter the Allele Sequence before submitting.");
+                return false;
+            }
+            if (!regex.test(sequenceInput)) {
+                alert("Allele Sequence should be between 1-14 and it should contain only ATGC");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Multitrait Prediction</h1>
+    <form method="POST" action="/predict" onsubmit="return validateForm()" novalidate>
+        <label>Enter the Allele Sequence:</label>
+        <input type="text" name="sequence" />
+        <div class="hlo">
+            <input type="submit" value="Predict" />
+        </div>
+    </form>
+</body>
+</html>
