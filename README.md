@@ -15,23 +15,6 @@ Evaluation Metrics: Measures accuracy, precision, recall, and F1-score.
 
 Visualization: Generates graphs for sequence distribution and model performance.
 
-📂 Project Structure
-
-📁 MTPS-main
-│-- 📂 data                # Raw and processed sequence data
-│-- 📂 models              # Trained ML models
-│-- 📂 notebooks           # Jupyter notebooks for analysis
-│-- 📂 src                 # Source code for preprocessing and prediction
-│-- 📜 requirements.txt    # Dependencies for running the project
-│-- 📜 README.md           # Project documentation
-
-🛠️ Installation
-
-Clone the repository:
-
-git clone https://github.com/your-username/allele-sequence-prediction.git
-cd allele-sequence-prediction
-
 Install dependencies:
 
 pip install -r requirements.txt
